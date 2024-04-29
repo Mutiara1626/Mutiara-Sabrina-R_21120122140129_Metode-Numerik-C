@@ -2,9 +2,9 @@ import numpy as np
 
 # Metode dekomposisi LU Gauss
 def metode_lu_gauss(A, b):
-    n = len(A) # Menghitung ukuran matriks 'A' (jumlah baris atau kolom)
-    L = np.eye(n) # Membuat matriks identitas (utk segitiga bawah dekomposisi LU)
-    U = A.copy().astype(float)  # Membuat salinan matriks A dan mengonversinya ke tipe float
+    n = len(A) 
+    L = np.eye(n) 
+    U = A.copy().astype(float)  
 
     # Perulangan eliminasi Gauss
     for k in range(n-1):
@@ -14,7 +14,7 @@ def metode_lu_gauss(A, b):
             U[i, k:] -= faktor * U[k, k:]
     
     # Perhitungan solusi
-    y = np.linalg.solve(L, b.astype(float))  # Mengonversi b ke tipe float
+    y = np.linalg.solve(L, b.astype(float))  
     x = np.linalg.solve(U, y)
     return x
 
